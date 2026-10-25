@@ -1,0 +1,31 @@
+RewriteEngine On
+
+# Redirect root to login
+RewriteRule ^$ login.php [L]
+
+# Auth pages
+RewriteRule ^login/?$ login.php [L,NC]
+RewriteRule ^register/?$ register.php [L,NC]
+RewriteRule ^logout/?$ logout.php [L,NC]
+
+# User pages
+RewriteRule ^dashboard/?$ user/dashboard.php [L,NC]
+RewriteRule ^income/?$ user/income.php [L,NC]
+RewriteRule ^expenses/?$ user/expenses.php [L,NC]
+RewriteRule ^budget/?$ user/budget.php [L,NC]
+RewriteRule ^reports/?$ user/reports.php [L,NC]
+RewriteRule ^profile/?$ user/profile.php [L,NC]
+
+# Admin pages
+RewriteRule ^admin/dashboard/?$ admin/dashboard.php [L,NC]
+RewriteRule ^admin/login/?$ admin/login.php [L,NC]
+RewriteRule ^admin/?$ admin/login.php [L,NC]
+RewriteRule ^admin/categories/?$ admin/categories.php [L,NC]
+RewriteRule ^admin/users/?$ admin/users.php [L,NC]
+
+# Deny access to sensitive directories
+RewriteRule ^includes/ - [F,L]
+RewriteRule ^config/ - [F,L]
+
+# Deny access to .sql and .md files
+RewriteRule \.(sql|md)$ - [F,L]

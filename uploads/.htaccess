@@ -1,0 +1,5 @@
+# Deny access to all files except images
+Options -Indexes
+<FilesMatch "\.(php|phtml|php3|php4|php5|inc|sql|cgi|pl|sh|py)$">
+    Require all denied
+</FilesMatch>
